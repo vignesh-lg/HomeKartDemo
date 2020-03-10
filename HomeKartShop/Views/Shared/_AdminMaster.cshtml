@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/Style.css" />
+</head>
+<body>
+    <div class="row">
+        <div class="navbar-logo">
+            <a href='@Url.Action("Index", "Home")'>
+                <img class="header-logo" src='@Url.Content("~/Images/output-onlinepngtools.png")' />
+            </a>
+        </div>
+        <div class="navbar">
+
+            <input class="header-textbox" type="text" id="txtName" name="searchparam" placeholder="type here to search" />
+
+            <input class="header-button" type="submit" id="btnSubmit" value="Search" />
+
+            @Html.ActionLink(Session["UserName"].ToString(), "AdminHome", "Admin")
+            @Html.ActionLink("About", "About", "Home")
+            @Html.ActionLink("Contact", "Contact", "Home")
+            @Html.ActionLink("Logout", "Index", "Home")
+
+            @Html.ActionLink("CutomerData", "CustomerData", "Admin")
+
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

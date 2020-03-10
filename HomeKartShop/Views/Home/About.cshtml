@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "About";
+    if (TempData["Message"] != null)
+    {
+        if (TempData["Message"].ToString() == "admin")
+        {
+            Layout = "~/Views/Shared/_AdminMaster.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+        }
+    }
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>

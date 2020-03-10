@@ -1,0 +1,101 @@
+﻿
+/* Master title */
+
+/* Header Logo */
+.header-logo {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin-left: 5%;
+}
+.row:after {
+    content: "";
+    display:block;
+    clear: both;
+}
+.navbar-logo {
+    width: 15%;
+    background-color: lightskyblue;
+    float: left;
+    overflow:auto;
+}
+
+    /* Navbar links */
+    .navbar-logo a {
+        float: left;
+        text-align: center;
+        padding: 5.5px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+        /* Navbar links hover */
+/* Current/active navbar link */
+/* Add responsivenes */
+@media screen and (max-width: 500px) {
+    .navbar-logo a {
+        float: none;
+        display: block;
+    }
+}
+.navbar {
+    width: 85%;
+    background-color: lightskyblue;
+    float: left;
+    
+}
+.header-textbox {
+    margin-left: 10%;
+    float: left;
+    border: none;
+    border-top: 10px solid lightskyblue;
+    border-right: 15px solid lightskyblue;
+    border-bottom: 5px solid lightskyblue;
+    background-color: white;
+    outline: none;
+    height: 35px;
+    width: 500px;
+    color: #673ab7;
+    font-size: 16px;
+}
+
+.header-button {
+    margin-right:4.5%;
+    float: left;
+    border: none;
+    outline: none;
+    border-top: 10px solid lightskyblue;
+    border-bottom: 7px solid lightskyblue;
+    height: 55px;
+    background: #2196f3;
+    color: #fff;
+    font-size: 18px;
+    
+}
+    .header-button:hover {
+        background-color: darkblue;
+    }
+    /* Navbar links */
+    .navbar a {
+        float: left;
+        padding: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+/* Navbar links hover */
+.navbar a:hover {
+    background-color: darkblue;
+}
+/* Current/active navbar link */
+/* Add responsivenes */
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+    }
+}
+
+
