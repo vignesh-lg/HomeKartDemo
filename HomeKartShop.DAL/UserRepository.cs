@@ -9,56 +9,18 @@ using System.Threading.Tasks;
 
 namespace HomeKartShop.DAL
 {
-    public class UserRepository
+    public interface StateView
     {
-        public static List<String> stateList = new List<String>();
-        public static List<String> tamilnaducityList = new List<String>();
-        public static List<String> andhracityList = new List<String>();
-        public static List<String> banglorecityList = new List<String>();
-
-        static UserRepository()
-        {
-            stateList.Add("Tamil Nadu");
-            stateList.Add("Andhra Pradesh");
-            stateList.Add("Bangalore");
-            tamilnaducityList.Add("Salem");
-            tamilnaducityList.Add("Chennai");
-            tamilnaducityList.Add("Coimbatore");
-            andhracityList.Add("Tirupathi");
-            andhracityList.Add("Hydreabad");
-            banglorecityList.Add("Mysore");
-            banglorecityList.Add("Manglore");
-        }
-        public static IEnumerable<String> GetDetails()
-        {
-            return stateList;
-        }
-        public static IEnumerable<String> GetTamilNaduDetails()
-        {
-            return tamilnaducityList;
-        }
-        public static IEnumerable<String> GetAndhraDetails()
-        {
-            return andhracityList;
-        }
-        public static IEnumerable<String> GetBangloreDetails()
-        {
-            return banglorecityList;
-        }
+        List<State> StateList();
+    }
+    public interface CityView
+    {
+        List<City> CityList();
+    }
+    public class UserRepository : StateView,CityView
+    {
         public string CheckLogin(string username, string password)
         {
-
-            //foreach (var data in userContext.user)
-            //{
-            //    if (data.UserName == username)
-            //    {
-            //        if (data.Password == password)
-            //            return data.UserName;
-            //        else
-            //            return null;
-            //    }
-            //}
-
             using (UserDataBase userContext = new UserDataBase())
             {
                 var obj = userContext.user.Where(a => a.UserName.Equals(username) && a.Password.Equals(password)).FirstOrDefault();
@@ -118,14 +80,14 @@ namespace HomeKartShop.DAL
                 return true;
             }
         }
-        public List<State> StateView()
+        public List<State> StateList()
         {
             using (UserDataBase userDataBase = new UserDataBase())
             {
                 return userDataBase.state.ToList();
             }
         }
-        public List<City> CityView()
+        public List<City> CityList()
         {
             using (UserDataBase userDataBase = new UserDataBase())
             {

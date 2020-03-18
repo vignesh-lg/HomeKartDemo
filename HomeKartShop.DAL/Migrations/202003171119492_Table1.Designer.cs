@@ -7,13 +7,13 @@ namespace HomeKartShop.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class Table1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Table1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003040429362_InitialCreate"; }
+            get { return "202003171119492_Table1"; }
         }
         
         string IMigrationMetadata.Source

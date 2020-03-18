@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "HomeKartShop.DAL.UserDataBase";
         }
 
         protected override void Seed(HomeKartShop.DAL.UserDataBase context)

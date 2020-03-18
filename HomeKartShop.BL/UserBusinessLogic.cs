@@ -12,22 +12,6 @@ namespace HomeKartShop.BL
     {
         UserRepository userRepository = new UserRepository();
         SliderRepository sliderRepository = new SliderRepository();
-        public static IEnumerable<String> GetStateDetails()
-        {
-            return UserRepository.GetDetails();
-        }
-        public static IEnumerable<String> GetTamilNaduDetails()
-        {
-            return UserRepository.GetTamilNaduDetails();
-        }
-        public static IEnumerable<String> GetAndhraDetails()
-        {
-            return UserRepository.GetAndhraDetails(); ;
-        }
-        public static IEnumerable<String> GetBangloreDetails()
-        {
-            return UserRepository.GetBangloreDetails();
-        }
         public string CheckLogin(string username, string password)
         {
             return userRepository.CheckLogin(username, password);
@@ -55,11 +39,13 @@ namespace HomeKartShop.BL
         }
         public List<State> StateView()
         {
-            return userRepository.StateView();
+            StateView stateView = new UserRepository();
+            return stateView.StateList();
         }
         public List<City> CityView()
         {
-            return userRepository.CityView();
+            CityView cityView = new UserRepository();
+            return cityView.CityList();
         }
         public object ToDisplayCustomer(string UserId)
         {
@@ -72,6 +58,18 @@ namespace HomeKartShop.BL
         public bool ToAdd(CarouselSlider carouselSlider)
         {
             return sliderRepository.ToAdd(carouselSlider);
+        }
+        public object ToDisplayCarousel(int UserId)
+        {
+            return sliderRepository.ToDisplayCarousel(UserId);
+        }
+        public bool ToUpdateCarousel(CarouselSlider carouselSlider)
+        {
+            return sliderRepository.ToUpdateCarousel(carouselSlider);
+        }
+        public bool ToDeleteCarousel(int UserId, CarouselSlider carouselSlider)
+        {
+            return sliderRepository.ToDeleteCarousel(UserId, carouselSlider);
         }
     }
 }

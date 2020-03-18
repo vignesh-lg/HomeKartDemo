@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeKartShop.Entity
 {
@@ -14,8 +9,13 @@ namespace HomeKartShop.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        [MaxLength(100)]
+        [Required]
         public string FileName { get; set; }
+        [Required]
         public int FileSize { get; set; }
+        [MaxLength(100)]
+        [Required]
         public string FilePath { get; set; }
     }
 }

@@ -55,17 +55,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202003040429362_InitialCreate.cs" />
-    <Compile Include="Migrations\202003040429362_InitialCreate.designer.cs">
-      <DependentUpon>202003040429362_InitialCreate.cs</DependentUpon>
+    <Compile Include="InventoryRespository.cs" />
+    <Compile Include="Migrations\202003170621097_Table.cs" />
+    <Compile Include="Migrations\202003170621097_Table.designer.cs">
+      <DependentUpon>202003170621097_Table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003050951503_Table.cs" />
-    <Compile Include="Migrations\202003050951503_Table.designer.cs">
-      <DependentUpon>202003050951503_Table.cs</DependentUpon>
+    <Compile Include="Migrations\202003171119492_Table1.cs" />
+    <Compile Include="Migrations\202003171119492_Table1.designer.cs">
+      <DependentUpon>202003171119492_Table1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003080836096_Table1.cs" />
-    <Compile Include="Migrations\202003080836096_Table1.designer.cs">
-      <DependentUpon>202003080836096_Table1.cs</DependentUpon>
+    <Compile Include="Migrations\202003171254233_Table2.cs" />
+    <Compile Include="Migrations\202003171254233_Table2.designer.cs">
+      <DependentUpon>202003171254233_Table2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003171349212_Table3.cs" />
+    <Compile Include="Migrations\202003171349212_Table3.designer.cs">
+      <DependentUpon>202003171349212_Table3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SliderRepository.cs" />
@@ -84,14 +89,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003040429362_InitialCreate.resx">
-      <DependentUpon>202003040429362_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003170621097_Table.resx">
+      <DependentUpon>202003170621097_Table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003050951503_Table.resx">
-      <DependentUpon>202003050951503_Table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003171119492_Table1.resx">
+      <DependentUpon>202003171119492_Table1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003080836096_Table1.resx">
-      <DependentUpon>202003080836096_Table1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003171254233_Table2.resx">
+      <DependentUpon>202003171254233_Table2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003171349212_Table3.resx">
+      <DependentUpon>202003171349212_Table3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

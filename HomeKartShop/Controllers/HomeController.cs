@@ -2,10 +2,7 @@
 using HomeKartShop.BL;
 using HomeKartShop.Entity;
 using HomeKartShop.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,7 +17,7 @@ namespace HomeKartShop.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            return View(userManager.GetCarouselSliders());
         }
 
         public ActionResult About()
@@ -36,28 +33,6 @@ namespace HomeKartShop.Controllers
 
             return View();
         }
-        [HttpGet]
-        public ActionResult SliderImage()
-        {
-            return View(userManager.GetCarouselSliders());
-        }
-        [HttpPost]
-        public ActionResult SliderImage(HttpPostedFileBase fileupload)
-        {
-            if (fileupload != null)
-            {
-                CarouselSliderModel carouselSliderModel = new CarouselSliderModel();
-                carouselSliderModel.FileName = Path.GetFileName(fileupload.FileName);
-                carouselSliderModel.FileSize = (fileupload.ContentLength) / 1000;
-                fileupload.SaveAs(Server.MapPath("~/Images/" + carouselSliderModel.FileName));
-                carouselSliderModel.FilePath = "~/Images/" + carouselSliderModel.FileName;
-                CarouselSlider slider = Mapper.Map<CarouselSliderModel, CarouselSlider>(carouselSliderModel);
-                if (userManager.ToAdd(slider) == true)
-                {
-                    return RedirectToAction("SliderImage", "Home");
-                }
-            }
-            return View();
-        }
+      
     }
 }

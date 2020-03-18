@@ -1,0 +1,91 @@
+﻿@model IEnumerable<HomeKartShop.Entity.Inventory>
+
+@{
+    ViewBag.Title = "ProductData";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+<script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+</script>
+<h2>ProductData</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Product_Registration")
+</p>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for product names.." title="Type in a name">
+<table id="myTable" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalSold)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remaining)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalStock)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalSold)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Remaining)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "ProductUpdate", new { id = item.ProductId }) |
+        @Html.ActionLink("Details", "ProductDetails", new { id = item.ProductId }) |
+        @Html.ActionLink("Delete", "ProductDelete", new { id = item.ProductId })
+    </td>
+</tr>
+    }
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HomeKartShop.Entity.ProductCategory>
+
+@{
+    ViewBag.Title = "ProductCategoryData";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<h2>ProductCategoryData</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ProductCategoryRegistration")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "ProductCategoryUpdate", new { id=item.CategoryId }) |
+            @Html.ActionLink("Details", "ProductCategoryDetails", new { id=item.CategoryId }) |
+            @Html.ActionLink("Delete", "ProductCategoryDelete", new { id=item.CategoryId })
+        </td>
+    </tr>
+}
+
+</table>

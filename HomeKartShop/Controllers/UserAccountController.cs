@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace HomeKartShop.Controllers
 {
@@ -23,8 +24,8 @@ namespace HomeKartShop.Controllers
         public ActionResult Registration_Get()
         {
 
-            ViewBag.State = new SelectList(userManager.StateView(),"StateId", "StateName" );
-            ViewBag.City = new SelectList(userManager.CityView(), "CityId", "CityName");
+            ViewBag.State = new SelectList(userManager.StateView(), "StateName","StateName");
+            ViewBag.City = new SelectList(userManager.CityView(), "CityName", "CityName");
             return View();
         }
         [HttpPost]
@@ -32,12 +33,16 @@ namespace HomeKartShop.Controllers
         [ActionName("Registration")]
         public ActionResult Registration_Post(UserRegisterData userdata)
         {
-            ViewBag.State = new SelectList(userManager.StateView(), "StateId", "StateName");
-     
+
+
+            ViewBag.State = new SelectList(userManager.StateView(), "StateName", "StateName");
+            ViewBag.City = new SelectList(userManager.CityView(), "CityName", "CityName");
             if (ModelState.IsValid)
             {
                 User registration = Mapper.Map<UserRegisterData, User>(userdata);
-                if(userManager.ToRegister(registration)==true)
+                registration.UserName = "HK_" + registration.CellNumber;
+                registration.RegistrationNumber = "HKrt" + registration.CellNumber;
+                if (userManager.ToRegister(registration)==true)
                 TempData["Message"] = "Registered Sucessfully";
                 return RedirectToAction("Secured", "UserAccount");
             }
@@ -57,6 +62,7 @@ namespace HomeKartShop.Controllers
         {
             if (userManager.CheckLogin(userLoginData.UserName, userLoginData.Password) == "admin")
             {
+                FormsAuthentication.SetAuthCookie(userLoginData.UserName, false);
                 Session["UserName"] = userLoginData.UserName;
                 Session["UserId"] = userLoginData.UserId;
                 TempData["Message"] = userLoginData.UserName;
@@ -64,6 +70,7 @@ namespace HomeKartShop.Controllers
             }
             else if (userManager.CheckLogin(userLoginData.UserName, userLoginData.Password) != null)
             {
+                FormsAuthentication.SetAuthCookie(userLoginData.UserName, false);
                 Session["UserName"] = userLoginData.UserName;
                 TempData["Message"] = userLoginData.UserName;
                 Session["UserId"] = userLoginData.UserId;
@@ -96,6 +103,13 @@ namespace HomeKartShop.Controllers
             {
                 return RedirectToAction("Login", "UserAccount");
             }
+        }
+        public ActionResult LogOut()
+        {
+            Session.Remove("UserName");
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

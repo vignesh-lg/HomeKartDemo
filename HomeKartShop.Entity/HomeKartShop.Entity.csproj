@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarouselSlider.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="ProductCategory.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

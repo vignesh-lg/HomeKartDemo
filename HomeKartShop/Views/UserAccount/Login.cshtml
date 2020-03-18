@@ -4,48 +4,40 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
 
 
 @using (Html.BeginForm("Login", "UserAccount", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <hr />
-    @if (TempData["Message"] != null)
-    {
-        <p>
-            @TempData["Message"].ToString()
-        </p>
-    }
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <div class="login-box">
+        <div class="left">
+            <h2 class="login-h1">Login</h2>
+            @if (TempData["Message"] != null)
+            {
+                <p>
+                    @TempData["Message"].ToString()
+                </p>
+            }
+            @Html.ValidationSummary(true,"", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Password,"", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Login" class="btn btn-default" />
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "login-text", @placeholder = "User Name" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "validation_message" })
+
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "login-password", @placeholder = "Password" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "validation_message" })
+
+
+            <input type="submit" value="Login" class="login-button" />
         </div>
+        <div class="right">
+            <span class="loginwith">Sign in with<br />social network</span>
+            <button class="social-signin facebook">Log in with facebook</button>
+            <button class="social-signin twitter">Log in with Twitter</button>
+            <button class="social-signin google">Log in with Google</button>
+        </div>
+        <div class="or">OR</div>
     </div>
-</div>
 }
 
-<div class="navbar">
-   
-        @Html.ActionLink("Home", "Index", "Home")
-    </div>
 

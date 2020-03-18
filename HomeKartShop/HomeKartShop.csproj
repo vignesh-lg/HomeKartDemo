@@ -135,12 +135,16 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CarouselSliderModel.cs" />
-    <Compile Include="Models\MapperConfig.cs" />
+    <Compile Include="App_Start\MapperConfig.cs" />
+    <Compile Include="Models\InventoryModel.cs" />
+    <Compile Include="Models\ProductCategoryModel.cs" />
+    <Compile Include="Models\User Update.cs" />
     <Compile Include="Models\UserLoginData.cs" />
     <Compile Include="Models\UserRegisterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +159,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
     <Content Include="Images\output-onlinepngtools.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -196,7 +203,19 @@
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Admin\CustomerData.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
-    <Content Include="Views\Home\SliderImage.cshtml" />
+    <Content Include="Views\Admin\SliderImage.cshtml" />
+    <Content Include="Views\Admin\CarousalDetails.cshtml" />
+    <Content Include="Views\Admin\CarouselDelete.cshtml" />
+    <Content Include="Views\Inventory\ProductData.cshtml" />
+    <Content Include="Views\Inventory\Product_Registration.cshtml" />
+    <Content Include="Views\Inventory\ProductDetails.cshtml" />
+    <Content Include="Views\Inventory\ProductUpdate.cshtml" />
+    <Content Include="Views\Inventory\ProductDelete.cshtml" />
+    <Content Include="Views\Inventory\ProductCategoryData.cshtml" />
+    <Content Include="Views\Inventory\ProductCategoryRegistration.cshtml" />
+    <Content Include="Views\Inventory\ProductCategoryDetails.cshtml" />
+    <Content Include="Views\Inventory\ProductCategoryUpdate.cshtml" />
+    <Content Include="Views\Inventory\ProductCategoryDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

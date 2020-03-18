@@ -17,7 +17,12 @@ namespace HomeKartShop.DAL
         public DbSet<State> state { get; set; }
         public DbSet<City> city { get; set; }
         public DbSet<CarouselSlider> carouselSliders { get; set; }
-        
+        public DbSet<ProductCategory> productCategory { get; set; }
+        public DbSet<Inventory> inventory { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CarouselSlider>().MapToStoredProcedures();
+        }
     }
 
 
