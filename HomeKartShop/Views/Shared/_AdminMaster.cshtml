@@ -19,8 +19,8 @@
 
             <input class="header-button" type="submit" id="btnSubmit" value="Search" />
             @Html.ActionLink(Session["UserName"].ToString(), "AdminHome", "Admin")
-            @Html.ActionLink("About", "About", "Home")
-            @Html.ActionLink("Contact", "Contact", "Home")
+            @Html.ActionLink("Product", "ProductData", "Inventory")
+            @Html.ActionLink("Category", "ProductCategoryData", "Inventory")
             @Html.ActionLink("Logout", "LogOut", "UserAccount")
             @Html.ActionLink("Customer", "CustomerData", "Admin")
 

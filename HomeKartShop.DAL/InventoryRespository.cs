@@ -19,7 +19,7 @@ namespace HomeKartShop.DAL
                 return true;
             }
         }
-        public object ToDisplayProduct(int ProductId)
+        public Inventory ToDisplayProduct(int ProductId)
         {
             using (UserDataBase userDataBase = new UserDataBase())
             {

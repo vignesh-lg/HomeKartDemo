@@ -14,7 +14,6 @@ namespace HomeKartShop.BL
         public bool ToRegisterProduct(Inventory inventory)
         {
             return inventoryRepository.ToRegisterProduct(inventory);
-
         }
         public List<Inventory> ViewProduct()
         {
